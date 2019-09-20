@@ -1,54 +1,56 @@
 Vim EslintFix Plugin
 ====
 
-This plugin provide a commend EslintFix to execute shell cmd `eslint --fix`.
+This plugin provide a command EslintFix to execute shell cmd `eslint --fix`.
 
 Requirement
 ----
 
 - Install [ESLint](https://eslint.org/) in global.
-- Make sure the command `eslint --fix <this file>` can execute in shell.
+- Make sure the command `eslint --fix <this file>` working in shell.
 
-Install with [Vundle](https://github.com/VundleVim/Vundle.vim)
+Install
 ----
 
-Add code to `.vimrc`:
+- [Vundle](https://github.com/VundleVim/Vundle.vim)
 
-```vim
-Plugin 'mapleque/vim-eslint-fix'
-```
+  Add code to `.vimrc`:
 
-Execute command in vim:
-```
-:PluginInstall
-```
+  ```vim
+  Plugin 'mapleque/vim-eslint-fix'
+  ```
+
+  Execute command in vim:
+  ```
+  :PluginInstall
+  ```
 
 Usage
 ----
 
 - Manual run
 
-```
-:EslintFix
-```
+  Execute command in vim:
+  ```
+  :EslintFix
+  ```
 
-- Use alias
+- Map key
 
-Add code to `.vimrc`:
+  Add code to `.vimrc`:
+  ```vim
+  " Usually you should use yoru self mapleader
+  let mapleader='.'
 
-```vim
-" Usually you should use yoru self mapleader
-let mapleader='.'
+  noremap <Leader>f :EslintFix<CR>
+  ```
 
-noremap <Leader>f :EslintFix<CR>
-```
-
-Then use `,f` instead of `:EslintFix`.
+  Then using `,f` instead of `:EslintFix`.
 
 - Auto run on `:w`
 
-Add code to `.vimrc`:
+  Add code to `.vimrc`:
+  ```vim
+  autocmd BufwritePost *.js EslintFix
+  ```
 
-```vim
-autocmd BufwritePost *.js EslintFix
-```
